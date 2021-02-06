@@ -1,0 +1,196 @@
+*{
+    padding: 0;
+    margin: 0;  
+    font-family: 'Press Start 2P', cursive;
+}
+
+
+.bkg{
+    width: 100wv;
+    height: 100vh;
+    background-image: url('img/pacman_bkg.jpg');
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.logo {
+    height: 100px;
+}
+
+.logo img{
+    height: 100%;
+}
+
+#display{
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+#score{
+    font-size: 40px;
+}
+
+.grid {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 420px;
+    height: 420px;
+    border: solid black;    
+    background-color: white;   
+}
+
+.grid div{
+    width: 15px;
+    height: 15px;
+}
+
+.pac-dot{
+    background-color: orange;
+    border: 5px solid white;
+    box-sizing: border-box;
+}
+
+.power-pellet{
+    background-color: rgb(25, 248, 25);
+    border-radius: 50%;
+}
+
+.wall {
+    background-color: blue;
+}
+
+
+.pacman {
+    background-color: yellow;
+    border-radius: 50%;
+    border: none;
+    position: relative;
+    background-image: none;
+} 
+
+.blinky {
+    background-color: red;
+    border: none;
+    border-radius: 7.5px 7.5px 0 0;
+}
+
+.pinky {
+    background-color: pink;
+    border: none;
+    border-radius: 7.5px 7.5px 0 0;
+}
+
+.inky {
+    background-color: lightblue;
+    border: none;
+    border-radius: 7.5px 7.5px 0 0;
+}
+
+.clyde {
+    background-color: orange;
+    border: none;
+    border-radius: 7.5px 7.5px 0 0;
+    
+}
+
+.scared-ghost {
+    background-color: aquamarine;
+    border: none;
+    border-radius: 7.5px 7.5px 0 0;
+}
+
+.eat-right {
+    background-image: url('img/pacmanHero.png');
+    background-size: cover;
+}
+
+.eat-left {
+    transform: rotate(180deg);
+    background-image: url('img/pacmanHero.png');
+    background-size: cover;
+}
+
+.eat-up{
+    transform: rotate(270deg);
+    background-image: url('img/pacmanHero.png');
+    background-size: cover; 
+}
+
+.eat-down {
+    transform: rotate(90deg);
+    background-image: url('img/pacmanHero.png');
+    background-size: cover;
+}
+
+.gameover {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-image: url('img/gameover.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;    
+}
+
+.restart {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.gameover .restart{
+    position: absolute;
+    padding: 20px 40px;
+    font-size: 20px;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#gameover-display{
+    color: white;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#gameover-score{
+    font-size: 70px;
+}
+
+.glow {
+    -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
+    -moz-animation: neon3 1.5s ease-in-out infinite alternate;
+    animation: neon3 1.5s ease-in-out infinite alternate;
+  }
+  
+  @keyframes neon3 {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FFDD1B, 0 0 70px #FFDD1B, 0 0 80px #FFDD1B, 0 0 100px #FFDD1B, 0 0 150px #FFDD1B;
+    }
+    to {
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FFDD1B, 0 0 35px #FFDD1B, 0 0 40px #FFDD1B, 0 0 50px #FFDD1B, 0 0 75px #FFDD1B;
+    }
+  }
+  

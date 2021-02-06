@@ -70,12 +70,7 @@ function createBoard() {
     }
 }
 createBoard()
-// down - 40
-// up key - 38
-// left - 37
-// right - 39
 
-console.log(walls);
 //starting position of pacman 
 let pacmanCurrentIndex = 490
 squares[pacmanCurrentIndex].classList.add('pacman')
@@ -119,7 +114,7 @@ restart[1].addEventListener('click', refreshPage)
 function control(e) {
     switch(e.keyCode) {
         case 40:
-        console.log('pressed down')
+        // down
         resetPacman()
         if (
             !squares[pacmanCurrentIndex + width].classList.contains('ghost-lair') &&
@@ -134,7 +129,7 @@ function control(e) {
             } 
        break
         case 38:
-        console.log('pressed up')
+        //up
         resetPacman()
         if (
             !squares[pacmanCurrentIndex - width].classList.contains('ghost-lair') &&
@@ -151,7 +146,7 @@ function control(e) {
             
         break
         case 37: 
-        console.log('pressed left')
+        // left
         resetPacman()
         if( 
             !squares[pacmanCurrentIndex -1].classList.contains('ghost-lair') &&
@@ -171,7 +166,7 @@ function control(e) {
             }
         break
         case 39:
-        console.log('pressed right')
+        // right
         resetPacman()
         if(
             !squares[pacmanCurrentIndex +1].classList.contains('ghost-lair') &&
@@ -193,7 +188,7 @@ function control(e) {
             }
         break
     }
-    // squares[pacmanCurrentIndex].classList.add('pacman')
+
     pacDotEaten()
     powerPelletEaten()
     checkForWin()
@@ -203,16 +198,14 @@ function control(e) {
 function moveGhost(ghost) {
     const directions = [-1, +1, -width, +width]
     let direction = directions[Math.floor(Math.random() * directions.length)]
-    console.log(direction)
     
     ghost.timerId = setInterval(function() {
-        //all our code
         //if the next square does NOT contain a wall and does not contain a ghost
         if (
             !squares[ghost.currentIndex + direction].classList.contains('wall') &&
             !squares[ghost.currentIndex + direction].classList.contains('ghost')
         ) {
-                //remove any ghost
+        //remove any ghost
         squares[ghost.currentIndex].classList.remove(ghost.className)
         squares[ghost.currentIndex].classList.remove('ghost', 'scared-ghost')
         // //add direction to current Index
@@ -228,7 +221,9 @@ function moveGhost(ghost) {
         }
         
         //if the ghost is current scared AND pacman is on it
-        if (ghost.isScared && squares[ghost.currentIndex].classList.contains('pacman')) {
+        if (ghost.isScared && ghost.currentIndex === pacmanCurrentIndex) {
+            console.log(squares[ghost.currentIndex]);
+            console.log(squares[pacmanCurrentIndex]);
             //remove classnames - ghost.className, 'ghost', 'scared-ghost'
             squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost')
             // change ghosts currentIndex back to its startIndex
@@ -288,7 +283,7 @@ function checkForGameOver() {
     setTimeout(function(){
          gameover.style.display = 'block' 
          gameoverScore.textContent = score
-        }, 1000)
+        }, 1500)
     }
 }
 
